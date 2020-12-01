@@ -3,13 +3,13 @@ import * as axios from "axios";
 import { AbortSignal } from "./AbortSignal";
 import { FetchError } from "./error";
 import Response from "./response";
-import * as Types from "./types";
+import { Headers, JSONParser } from "./types";
 
 // -----------------------------------------------------------------------------
 
 export interface Options {
 	method?: "GET" | "POST" | "PUT" | "DELETE" | "OPTIONS";
-	headers?: Types.Headers | null;
+	headers?: Headers | null;
 	params?: Record<string, string> | null;
 	body?: any;
 	maxRedirects?: number;
@@ -36,7 +36,7 @@ export interface ProxyOptions {
 }
 
 export interface JSONOptions extends Options {
-	parser?: Types.JSONParser | null;
+	parser?: JSONParser | null;
 }
 
 interface DefaultOptions {
@@ -45,7 +45,7 @@ interface DefaultOptions {
 	timeout: number | null;
 	auth: CredentialsOptions | null;
 	proxy: ProxyOptions | null;
-	jsonParser: Types.JSONParser | null;
+	jsonParser: JSONParser | null;
 }
 
 export const defaults: DefaultOptions = {
