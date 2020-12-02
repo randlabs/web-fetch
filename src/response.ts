@@ -1,5 +1,5 @@
 //License: Apache 2.0. See LICENSE.md
-import * as Types from "./types";
+import { Headers, JSONParser } from "./types";
 import * as Utils from "./utils";
 
 // -----------------------------------------------------------------------------
@@ -7,9 +7,9 @@ import * as Utils from "./utils";
 export default class Response {
 	private data: Uint8Array | null;
 	private httpStatus: number;
-	private httpHeaders: Types.Headers;
+	private httpHeaders: Headers;
 
-	constructor(data: Uint8Array | ArrayBuffer | null | undefined, status: number, headers: Types.Headers | null) {
+	constructor(data: Uint8Array | ArrayBuffer | null | undefined, status: number, headers: Headers | null) {
 		if (data) {
 			this.data = (data instanceof Uint8Array) ? data : new Uint8Array(data);
 		}
@@ -28,7 +28,7 @@ export default class Response {
 		return Utils.toUtf8(this.data);
 	}
 
-	toJSON(parser?: Types.JSONParser | null): any {
+	toJSON(parser?: JSONParser | null): any {
 		return Utils.toJSON(this.data, parser);
 	}
 
@@ -40,7 +40,7 @@ export default class Response {
 		return this.httpStatus;
 	}
 
-	get headers(): Types.Headers {
+	get headers(): Headers {
 		return this.httpHeaders;
 	}
 }
