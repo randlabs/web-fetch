@@ -1,5 +1,5 @@
 //License: Apache 2.0. See LICENSE.md
-import * as Types from "./types";
+import { Headers, JSONParser } from "./types";
 import * as Utils from "./utils";
 
 // -----------------------------------------------------------------------------
@@ -16,11 +16,11 @@ export class FetchError extends Error {
 	public stack?: string;
 	private data: Uint8Array | null;
 	private httpStatus?: number;
-	private httpHeaders: Types.Headers;
+	private httpHeaders: Headers;
 
 	constructor(
 		message: string, type: FetchErrorType,
-		data?: Uint8Array | ArrayBuffer | null | undefined, status?: number, headers?: Types.Headers | null
+		data?: Uint8Array | ArrayBuffer | null | undefined, status?: number, headers?: Headers | null
 	) {
 		super(message);
 		this.name = "FetchError";
@@ -45,7 +45,7 @@ export class FetchError extends Error {
 		return Utils.toUtf8(this.data);
 	}
 
-	toJSON(parser?: Types.JSONParser | null): any {
+	toJSON(parser?: JSONParser | null): any {
 		return Utils.toJSON(this.data, parser);
 	}
 
@@ -57,7 +57,7 @@ export class FetchError extends Error {
 		return (this.httpStatus) ? this.httpStatus : 0;
 	}
 
-	get headers(): Types.Headers {
+	get headers(): Headers {
 		return this.httpHeaders;
 	}
 }

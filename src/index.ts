@@ -39,6 +39,8 @@ export interface JSONOptions extends Options {
 	parser?: JSONParser | null;
 }
 
+export { FetchError } from "./error";
+
 interface DefaultOptions {
 	maxRedirects: number;
 	maxBodySize: number | null;
