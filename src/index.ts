@@ -2,7 +2,7 @@
 import * as axios from "axios";
 import { AbortSignal } from "./AbortSignal";
 import { FetchError } from "./error";
-import Response from "./response";
+import { Response } from "./response";
 import { Headers, JSONParser } from "./types";
 
 // -----------------------------------------------------------------------------
@@ -40,6 +40,8 @@ export interface JSONOptions extends Options {
 }
 
 export { FetchError } from "./error";
+export { Response } from "./response";
+
 
 interface DefaultOptions {
 	maxRedirects: number;

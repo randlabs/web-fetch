@@ -4,7 +4,7 @@ import * as Utils from "./utils";
 
 // -----------------------------------------------------------------------------
 
-export default class Response {
+export class Response {
 	private data: Uint8Array | null;
 	private httpStatus: number;
 	private httpHeaders: Headers;
