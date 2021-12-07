@@ -117,7 +117,7 @@ export async function fetch(url: string, options?: Options): Promise<Response> {
 	try {
 		response = await axios.default(axiosOptions);
 	}
-	catch (fetchErr) {
+	catch (fetchErr: any) {
 		let err: FetchError;
 
 		if (axios.default.isCancel(fetchErr)) {

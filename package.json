@@ -1,6 +1,6 @@
 {
 	"name": "@randlabs/web-fetch",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Standarized web fetch module",
 	"main": "build/index.js",
 	"types": "build/index.d.ts",
