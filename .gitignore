@@ -3,7 +3,6 @@
 .npm
 .eslintcache
 .node_repl_history
-package-lock.json
 build/
 dist/
 node_modules/
