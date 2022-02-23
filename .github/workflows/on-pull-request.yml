@@ -1,0 +1,25 @@
+name: "Push workflow"
+
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Setup nodejs v14
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 14
+
+      - name: Install Deps
+        run: npm install
+
+      - name: Test
+        run: npm test
